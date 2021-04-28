@@ -7,13 +7,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: BaseVC {
 
+    @IBOutlet weak var testTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        initView()
     }
-
+    
+    func initView(){
+        addCustomBarKeyboard(testTextField)
+    }
 
 }
 

@@ -1,0 +1,6 @@
+framework module Pods_TVO_VNPTCustomKB {
+  umbrella header "Pods-TVO_VNPTCustomKB-umbrella.h"
+
+  export *
+  module * { export * }
+}

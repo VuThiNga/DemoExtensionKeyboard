@@ -1,0 +1,6 @@
+framework module Pods_TVO_VNPTKeyboard {
+  umbrella header "Pods-TVO_VNPTKeyboard-umbrella.h"
+
+  export *
+  module * { export * }
+}
