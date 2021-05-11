@@ -28,4 +28,19 @@ class KeyboardVM {
             }
         }
     }
+    
+    func callAPIVNPT(successCls: ((VNPTModel)->())?, failCls: ((String)->())?){
+        VNPTEnpoints.exampleVnpt.sendRequest(
+            parsingModelType: VNPTModel.self, success: { (resp) in
+                
+                if let successCls = successCls {
+                    successCls(resp)
+                }
+            }, failure: { errorStr in
+                //show error alert
+                if let failCls = failCls {
+                    failCls(errorStr)
+                }
+            })
+    }
 }

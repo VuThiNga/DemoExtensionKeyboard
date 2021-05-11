@@ -25,16 +25,27 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="lyE-Py-Kzz"/>
                                 </connections>
                             </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ds6-MM-Xpa">
+                                <rect key="frame" x="87" y="158" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="9SI-1i-Jup"/>
+                                    <constraint firstAttribute="width" constant="240" id="LyO-5g-JMK"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="X92-pQ-Tfu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="R6Z-OT-O9B"/>
                             <constraint firstItem="X92-pQ-Tfu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="VQ0-s4-sSY"/>
+                            <constraint firstItem="Ds6-MM-Xpa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YTa-2w-Dv7"/>
                             <constraint firstItem="X92-pQ-Tfu" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bDq-NA-RxV"/>
+                            <constraint firstItem="Ds6-MM-Xpa" firstAttribute="top" secondItem="X92-pQ-Tfu" secondAttribute="bottom" constant="30" id="jQg-nX-Mlk"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="imageView" destination="Ds6-MM-Xpa" id="MW5-k7-jrV"/>
                         <outlet property="testTextField" destination="X92-pQ-Tfu" id="KEY-fg-1XN"/>
                     </connections>
                 </viewController>
