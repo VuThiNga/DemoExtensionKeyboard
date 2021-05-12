@@ -8,7 +8,7 @@
 import UIKit
 import SwiftyGif
 
-class ViewController: BaseVC, NSFilePresenter {
+class ViewController: BaseVC, NSFilePresenter, UITextFieldDelegate {
 
     @IBOutlet weak var testTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
@@ -34,7 +34,9 @@ class ViewController: BaseVC, NSFilePresenter {
     }
     
     func initView(){
-        addCustomBarKeyboard(testTextField)
+        DispatchQueue.main.async {
+            self.addCustomBarKeyboard(self.testTextField)
+        }
     }
     
     func presentedItemDidChange() { // posted on changed existed file only
@@ -48,6 +50,7 @@ class ViewController: BaseVC, NSFilePresenter {
                 let urlLink = URL(string: url)
                 if let urlLink = urlLink {
                     DispatchQueue.main.async {
+                        self.imageView.isHidden = false
                         self.testTextField.text = url // demo label in view for test
                         let loader = UIActivityIndicatorView(style: .gray)
                         self.imageView.setGifFromURL(urlLink, customLoader: loader)
@@ -67,6 +70,11 @@ class ViewController: BaseVC, NSFilePresenter {
                 catch { print("writing failed") }
             }
         }
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        imageView.isHidden = true
+        return true
     }
 }
 
