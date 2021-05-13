@@ -6,8 +6,21 @@
 //
 
 import Foundation
+import UIKit
 
 class KeyboardVM {
+    
+    func initUntilityList() -> [UntilityModels] {
+        let untilityList = [
+            UntilityModels(idUntility: "1", nameUntility: "Danh bạ", imageUntility: UIImage(named: "phone_book")),
+            UntilityModels(idUntility: "2", nameUntility: "Hạn mức", imageUntility: UIImage(named: "limited_time")),
+            UntilityModels(idUntility: "3", nameUntility: "Thông tin tài khoản", imageUntility: UIImage(named: "acc_information")),
+            UntilityModels(idUntility: "4", nameUntility: "Chuyển tiền", imageUntility: UIImage(named: "money_growth"))
+        ]
+        
+        return untilityList
+    }
+    
     func loadJson(filename fileName: String, success: ((Int)->())?, fail: (()->())?) {
         if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
             do {

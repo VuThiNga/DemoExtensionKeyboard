@@ -35,6 +35,7 @@
 		84C9515F2639099200CD5BAD /* KeyboardColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9515E2639099200CD5BAD /* KeyboardColorScheme.swift */; };
 		84C9516326390CE200CD5BAD /* KeyboardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9516226390CE200CD5BAD /* KeyboardVM.swift */; };
 		84C95171263912DF00CD5BAD /* contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = 84C95170263912DF00CD5BAD /* contacts.json */; };
+		84D82023264D105100D189CB /* UntilityKeyboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D82022264D105100D189CB /* UntilityKeyboardCell.swift */; };
 		A76EDDCF587A878BE9D17274 /* Pods_TVO_VNPTKeyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A7F95161839CC094279CDA /* Pods_TVO_VNPTKeyboard.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		84C9515E2639099200CD5BAD /* KeyboardColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardColorScheme.swift; sourceTree = "<group>"; };
 		84C9516226390CE200CD5BAD /* KeyboardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardVM.swift; sourceTree = "<group>"; };
 		84C95170263912DF00CD5BAD /* contacts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = contacts.json; sourceTree = "<group>"; };
+		84D82022264D105100D189CB /* UntilityKeyboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UntilityKeyboardCell.swift; sourceTree = "<group>"; };
 		959660601E079C0A10FD0673 /* Pods-TVO_VNPTCustomKB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVO_VNPTCustomKB.debug.xcconfig"; path = "Target Support Files/Pods-TVO_VNPTCustomKB/Pods-TVO_VNPTCustomKB.debug.xcconfig"; sourceTree = "<group>"; };
 		F1C8F00F925F2A75D48F1992 /* Pods-TVO_VNPTKeyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVO_VNPTKeyboard.debug.xcconfig"; path = "Target Support Files/Pods-TVO_VNPTKeyboard/Pods-TVO_VNPTKeyboard.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -190,6 +192,7 @@
 				842D53CA26478065002CC9B8 /* BasicPopup.xib */,
 				84A8617626479224007180BC /* BasicPopupView.xib */,
 				84A8617A264792A6007180BC /* BasicPopupView.swift */,
+				84D82022264D105100D189CB /* UntilityKeyboardCell.swift */,
 			);
 			path = TVO_VNPTCustomKB;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				84C9516326390CE200CD5BAD /* KeyboardVM.swift in Sources */,
 				84A480142644F70A00CB23FA /* VNPTEndpoints.swift in Sources */,
 				84A480182644F7AF00CB23FA /* Network.swift in Sources */,
+				84D82023264D105100D189CB /* UntilityKeyboardCell.swift in Sources */,
 				84C951482638122100CD5BAD /* ItemKeyboardCell.swift in Sources */,
 				84A480532644FA8900CB23FA /* VNPTModels.swift in Sources */,
 			);

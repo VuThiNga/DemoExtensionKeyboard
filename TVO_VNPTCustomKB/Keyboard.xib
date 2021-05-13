@@ -14,7 +14,7 @@
                 <outlet property="collectionView" destination="Y8e-4g-QLM" id="RfL-hZ-gIg"/>
                 <outlet property="descriptionLB" destination="jUL-hi-uI0" id="Icc-p7-6HF"/>
                 <outlet property="imageView" destination="DqT-Yb-MGR" id="jga-zt-EO3"/>
-                <outlet property="nextKeyboardButton" destination="LAw-lX-LMx" id="HWy-Gy-U0o"/>
+                <outlet property="nextKeyboardButton" destination="LAw-lX-LMx" id="vbo-kF-xUF"/>
                 <outlet property="selectedUntilityLb" destination="tMl-ed-nbL" id="jyk-ky-lMQ"/>
             </connections>
         </placeholder>
