@@ -13,18 +13,18 @@ import SwiftyGif
 class KeyboardViewController: UIInputViewController {
 
     @IBOutlet var nextKeyboardButton: UIButton!
-//    @IBOutlet weak var collectionView: UICollectionView!
-//    @IBOutlet weak var selectedUntilityLb: UILabel!
-//    @IBOutlet weak var descriptionLB: UILabel!
-//    @IBOutlet weak var imageView: UIImageView!
-    //var keyboardView: UIView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var selectedUntilityLb: UILabel!
+    @IBOutlet weak var descriptionLB: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    var keyboardView: UIView!
     var vm = KeyboardVM()
     
-    var collectionView: UICollectionView!
-    var imageView: UIImageView!
-    var descriptionLB: UILabel!
-    var selectedUntilityLb: UILabel!
-    
+//    var collectionView: UICollectionView!
+//    var imageView: UIImageView!
+//    var descriptionLB: UILabel!
+//    var selectedUntilityLb: UILabel!
+//
     var presentedItemURL: URL?
     var presentedItemOperationQueue: OperationQueue = OperationQueue.main
     
@@ -36,7 +36,7 @@ class KeyboardViewController: UIInputViewController {
         super.updateViewConstraints()
         
         // Add custom view sizing constraints here
-        //keyboardView.frame.size = view.frame.size
+        keyboardView.frame.size = view.frame.size
     }
     
     override func viewDidLoad() {
@@ -57,13 +57,13 @@ class KeyboardViewController: UIInputViewController {
         super.viewWillAppear(animated)
         let heightConstraint = NSLayoutConstraint(item: view!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1.0, constant: 300)
         view.addConstraint(heightConstraint)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        self.collectionView.delegate = self
-//        self.collectionView.dataSource = self
-//        self.collectionView.register(UINib(nibName: cellUntility, bundle: nil), forCellWithReuseIdentifier: cellUntility)
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+        self.collectionView.register(UntilityKeyboardCell.self, forCellWithReuseIdentifier: "Cell")
+        //self.collectionView.register(UINib(nibName: cellUntility, bundle: nil), forCellWithReuseIdentifier: cellUntility)
         let url = URL(string: "https://media.giphy.com/media/3og0IUEEbY9wRwrBL2/giphy.gif")
         let loader = UIActivityIndicatorView(style: .white)
         if let url = url {
@@ -72,87 +72,86 @@ class KeyboardViewController: UIInputViewController {
     }
     
     func loadInterface(){
-//        let keyboardNib = UINib(nibName: "Keyboard", bundle: nil)
-//        keyboardView = keyboardNib.instantiate(withOwner: self, options: nil)[0] as? UIView
-//        keyboardView.sizeToFit()
-//        view.addSubview(keyboardView)
-        
-        self.nextKeyboardButton = UIButton()
-        
-        self.nextKeyboardButton.setBackgroundImage(UIImage(named: "ic_globe"), for: .normal)
-        // Perform custom UI setup here
-        self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
+        let keyboardNib = UINib(nibName: "Keyboard", bundle: nil)
+        keyboardView = keyboardNib.instantiate(withOwner: self, options: nil)[0] as? UIView
+        keyboardView.sizeToFit()
+        view.addSubview(keyboardView)
+//        self.nextKeyboardButton = UIButton()
+//
+//        self.nextKeyboardButton.setBackgroundImage(UIImage(named: "ic_globe"), for: .normal)
+//        // Perform custom UI setup here
+//        self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
         
         self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
         
-        self.view.addSubview(self.nextKeyboardButton)
+//        self.view.addSubview(self.nextKeyboardButton)
         
         
-        NSLayoutConstraint.activate([
-            self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20),
-            self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -20),
-            self.nextKeyboardButton.heightAnchor.constraint(equalToConstant: 24.0),
-            self.nextKeyboardButton.widthAnchor.constraint(equalTo: self.nextKeyboardButton.heightAnchor)
-        ])
-        
-        imageView = UIImageView()
-        self.imageView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(self.imageView)
-        NSLayoutConstraint.activate([
-            self.imageView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -10),
-            self.imageView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -10),
-            self.imageView.heightAnchor.constraint(equalToConstant: 50.0),
-            self.imageView.widthAnchor.constraint(equalTo: self.imageView.heightAnchor)
-        ])
-        
+//        NSLayoutConstraint.activate([
+//            self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20),
+//            self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -20),
+//            self.nextKeyboardButton.heightAnchor.constraint(equalToConstant: 24.0),
+//            self.nextKeyboardButton.widthAnchor.constraint(equalTo: self.nextKeyboardButton.heightAnchor)
+//        ])
+//
+//        imageView = UIImageView()
+//        self.imageView.translatesAutoresizingMaskIntoConstraints = false
+//        self.view.addSubview(self.imageView)
+//        NSLayoutConstraint.activate([
+//            self.imageView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -10),
+//            self.imageView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -10),
+//            self.imageView.heightAnchor.constraint(equalToConstant: 50.0),
+//            self.imageView.widthAnchor.constraint(equalTo: self.imageView.heightAnchor)
+//        ])
+//
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(tapGestureRecognizer)
         
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        //collectionView.setCollectionViewLayout(layout, animated: true)
-        collectionView.register(UntilityKeyboardCell.self, forCellWithReuseIdentifier: "Cell")
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .clear
-        self.view.addSubview(self.collectionView)
-        NSLayoutConstraint.activate([
-            self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 20),
-            self.collectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 10),
-            self.collectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -10),
-            self.collectionView.heightAnchor.constraint(equalToConstant: 100.0),
-        ])
-        
-        selectedUntilityLb = UILabel()
-        selectedUntilityLb.textAlignment = .center
-        selectedUntilityLb.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-        selectedUntilityLb.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(selectedUntilityLb)
-        NSLayoutConstraint.activate([
-            self.selectedUntilityLb.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0),
-            self.selectedUntilityLb.topAnchor.constraint(equalTo: self.collectionView.bottomAnchor, constant: 20),
-            self.selectedUntilityLb.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-        ])
-        
-        descriptionLB = UILabel()
-        descriptionLB.textAlignment = .left
-        descriptionLB.font = UIFont.systemFont(ofSize: 14)
-        descriptionLB.text = "Chọn Hạn mức để xem thông tin API VNPT"
-        descriptionLB.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(descriptionLB)
-        NSLayoutConstraint.activate([
-            self.descriptionLB.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20),
-            self.descriptionLB.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 20),
-            self.descriptionLB.topAnchor.constraint(equalTo: self.selectedUntilityLb.bottomAnchor, constant: 10),
-            self.descriptionLB.bottomAnchor.constraint(lessThanOrEqualTo: self.nextKeyboardButton.topAnchor, constant: -10)
-        ])
+//        let layout = UICollectionViewFlowLayout()
+//        layout.scrollDirection = .horizontal
+//        layout.minimumInteritemSpacing = 0
+//        layout.minimumLineSpacing = 0
+//        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+//        collectionView.showsHorizontalScrollIndicator = false
+//        collectionView.delegate = self
+//        collectionView.dataSource = self
+//        //collectionView.setCollectionViewLayout(layout, animated: true)
+//        collectionView.register(UntilityKeyboardCell.self, forCellWithReuseIdentifier: "Cell")
+//        collectionView.translatesAutoresizingMaskIntoConstraints = false
+//        collectionView.backgroundColor = .clear
+//        self.view.addSubview(self.collectionView)
+//        NSLayoutConstraint.activate([
+//            self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 20),
+//            self.collectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 10),
+//            self.collectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -10),
+//            self.collectionView.heightAnchor.constraint(equalToConstant: 120.0),
+//        ])
+//        
+//        selectedUntilityLb = UILabel()
+//        selectedUntilityLb.textAlignment = .center
+//        selectedUntilityLb.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+//        selectedUntilityLb.translatesAutoresizingMaskIntoConstraints = false
+//        self.view.addSubview(selectedUntilityLb)
+//        NSLayoutConstraint.activate([
+//            self.selectedUntilityLb.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0),
+//            self.selectedUntilityLb.topAnchor.constraint(equalTo: self.collectionView.bottomAnchor, constant: 20),
+//            self.selectedUntilityLb.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+//        ])
+//        
+//        descriptionLB = UILabel()
+//        descriptionLB.textAlignment = .left
+//        descriptionLB.font = UIFont.systemFont(ofSize: 14)
+//        descriptionLB.text = "Chọn Hạn mức để xem thông tin API VNPT"
+//        descriptionLB.translatesAutoresizingMaskIntoConstraints = false
+//        self.view.addSubview(descriptionLB)
+//        NSLayoutConstraint.activate([
+//            self.descriptionLB.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20),
+//            self.descriptionLB.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 20),
+//            self.descriptionLB.topAnchor.constraint(equalTo: self.selectedUntilityLb.bottomAnchor, constant: 10),
+//            self.descriptionLB.bottomAnchor.constraint(lessThanOrEqualTo: self.nextKeyboardButton.topAnchor, constant: -10)
+//        ])
     
     }
     
