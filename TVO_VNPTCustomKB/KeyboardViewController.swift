@@ -17,7 +17,9 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var selectedUntilityLb: UILabel!
     @IBOutlet weak var descriptionLB: UILabel!
+    @IBOutlet weak var tfPhone: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var displayNumberLb: UILabel!
     var keyboardView: UIView!
     var vm = KeyboardVM()
     
@@ -48,10 +50,15 @@ class KeyboardViewController: UIInputViewController {
         let dir = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.ngavt.tvo.KeyboardCustomTVO")!
         presentedItemURL = dir.appendingPathComponent(file)
         untilityList = vm.initUntilityList()
+        self.tfPhone.isUserInteractionEnabled = false
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         writeToFile(urlStr: "https://media.giphy.com/media/3og0IUEEbY9wRwrBL2/giphy.gif")
+    }
+    
+    @objc func displayLbTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        showPopupEnterNumber()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,15 +68,7 @@ class KeyboardViewController: UIInputViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
-        self.collectionView.register(UntilityKeyboardCell.self, forCellWithReuseIdentifier: "Cell")
-        //self.collectionView.register(UINib(nibName: cellUntility, bundle: nil), forCellWithReuseIdentifier: cellUntility)
-        let url = URL(string: "https://media.giphy.com/media/3og0IUEEbY9wRwrBL2/giphy.gif")
-        let loader = UIActivityIndicatorView(style: .white)
-        if let url = url {
-        imageView.setGifFromURL(url, customLoader: loader)
-        }
+    
     }
     
     func loadInterface(){
@@ -77,6 +76,9 @@ class KeyboardViewController: UIInputViewController {
         keyboardView = keyboardNib.instantiate(withOwner: self, options: nil)[0] as? UIView
         keyboardView.sizeToFit()
         view.addSubview(keyboardView)
+        let tapGesLb = UITapGestureRecognizer(target: self, action: #selector(displayLbTapped(tapGestureRecognizer:)))
+        displayNumberLb.isUserInteractionEnabled = true
+        displayNumberLb.addGestureRecognizer(tapGesLb)
 //        self.nextKeyboardButton = UIButton()
 //
 //        self.nextKeyboardButton.setBackgroundImage(UIImage(named: "ic_globe"), for: .normal)
@@ -153,7 +155,16 @@ class KeyboardViewController: UIInputViewController {
 //            self.descriptionLB.topAnchor.constraint(equalTo: self.selectedUntilityLb.bottomAnchor, constant: 10),
 //            self.descriptionLB.bottomAnchor.constraint(lessThanOrEqualTo: self.nextKeyboardButton.topAnchor, constant: -10)
 //        ])
-    
+        
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+        self.collectionView.register(UntilityKeyboardCell.self, forCellWithReuseIdentifier: "Cell")
+        //self.collectionView.register(UINib(nibName: cellUntility, bundle: nil), forCellWithReuseIdentifier: cellUntility)
+        let url = URL(string: "https://media.giphy.com/media/3og0IUEEbY9wRwrBL2/giphy.gif")
+        let loader = UIActivityIndicatorView(style: .white)
+        if let url = url {
+        imageView.setGifFromURL(url, customLoader: loader)
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -294,6 +305,7 @@ extension KeyboardViewController {
         selectedUntilityLb.textColor = colorScheme.previewTextColor
         descriptionLB.textColor = colorScheme.previewTextColor
         view.backgroundColor = colorScheme.backgroundColor
+        displayNumberLb.textColor = colorScheme.previewTextColor
     }
     
     func showLoading(_ msg: String? = nil) {
@@ -338,6 +350,29 @@ extension KeyboardViewController {
                 })
             }
             
+        }
+    }
+    
+    func showPopupEnterNumber(){
+        let popup = Bundle.main.loadNibNamed("EnterPhoneView", owner: self, options: nil)?.first as! EnterPhoneView
+        popup.frame = CGRect(x:0, y: self.view.frame.height + 10, width: self.view.frame.width, height: self.view.frame.height)
+        UIView.transition(with: self.view, duration: 0.25, options: [.curveEaseIn], animations: {
+            popup.frame = CGRect(x:0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        }, completion: nil)
+        self.view.addSubview(popup)
+        popup.setUpView(currentNum: self.displayNumberLb.text)
+        popup.closePopup = { [unowned self] numberStr in
+            UIView.transition(with: self.view, duration: 0.5, options: [.curveEaseIn], animations: {
+                popup.frame = CGRect(x:0, y: self.view.frame.height + 10, width: self.view.frame.width, height: self.view.frame.height)
+            }, completion: { [weak self]_ in
+                popup.removeFromSuperview()
+                if numberStr != "" {
+                    self?.tfPhone.placeholder  = ""
+                }else {
+                    self?.tfPhone.placeholder  = "Enter number"
+                }
+                self?.displayNumberLb.text = numberStr
+            })
         }
     }
 }

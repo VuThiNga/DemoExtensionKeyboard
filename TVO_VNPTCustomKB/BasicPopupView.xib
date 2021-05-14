@@ -133,7 +133,7 @@
                 <outlet property="contentTv" destination="lfD-Ph-dD4" id="OGE-zs-6HU"/>
                 <outlet property="popupTitleLb" destination="wNt-sk-wjd" id="rgZ-C4-mI5"/>
             </connections>
-            <point key="canvasLocation" x="100" y="93"/>
+            <point key="canvasLocation" x="100.00000000000001" y="92.410714285714278"/>
         </view>
     </objects>
     <resources>

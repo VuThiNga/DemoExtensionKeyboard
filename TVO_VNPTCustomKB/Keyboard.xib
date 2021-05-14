@@ -13,9 +13,11 @@
             <connections>
                 <outlet property="collectionView" destination="Y8e-4g-QLM" id="RfL-hZ-gIg"/>
                 <outlet property="descriptionLB" destination="jUL-hi-uI0" id="Icc-p7-6HF"/>
+                <outlet property="displayNumberLb" destination="z6h-j0-deU" id="F6Z-La-GYF"/>
                 <outlet property="imageView" destination="DqT-Yb-MGR" id="jga-zt-EO3"/>
                 <outlet property="nextKeyboardButton" destination="LAw-lX-LMx" id="vbo-kF-xUF"/>
                 <outlet property="selectedUntilityLb" destination="tMl-ed-nbL" id="jyk-ky-lMQ"/>
+                <outlet property="tfPhone" destination="i6D-Zh-Rkn" id="fKR-kE-bYr"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -71,21 +73,39 @@
                         <constraint firstAttribute="width" constant="50" id="s5V-GN-wFU"/>
                     </constraints>
                 </imageView>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i6D-Zh-Rkn">
+                    <rect key="frame" x="154" y="248" width="317" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6h-j0-deU">
+                    <rect key="frame" x="162" y="248" width="301" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
                 <constraint firstItem="jUL-hi-uI0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="2xd-z1-n10"/>
+                <constraint firstItem="z6h-j0-deU" firstAttribute="trailing" secondItem="i6D-Zh-Rkn" secondAttribute="trailing" constant="-8" id="4Kl-wz-R9A"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="i6D-Zh-Rkn" secondAttribute="trailing" constant="20" id="5Hi-Np-FeV"/>
+                <constraint firstItem="i6D-Zh-Rkn" firstAttribute="leading" secondItem="DqT-Yb-MGR" secondAttribute="trailing" constant="20" id="6Es-7t-pzS"/>
                 <constraint firstItem="LAw-lX-LMx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="9xr-tB-nF0"/>
                 <constraint firstItem="DqT-Yb-MGR" firstAttribute="leading" secondItem="LAw-lX-LMx" secondAttribute="trailing" constant="50" id="H7l-8K-yM4"/>
                 <constraint firstItem="tMl-ed-nbL" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Hjk-vA-aQb"/>
+                <constraint firstItem="z6h-j0-deU" firstAttribute="top" secondItem="i6D-Zh-Rkn" secondAttribute="top" id="PfG-Zp-pkA"/>
+                <constraint firstItem="i6D-Zh-Rkn" firstAttribute="centerY" secondItem="DqT-Yb-MGR" secondAttribute="centerY" id="Ukt-NE-D89"/>
                 <constraint firstAttribute="bottom" secondItem="LAw-lX-LMx" secondAttribute="bottom" constant="10" id="WeR-h6-yL6"/>
                 <constraint firstItem="tMl-ed-nbL" firstAttribute="top" secondItem="Y8e-4g-QLM" secondAttribute="bottom" constant="20" id="bNm-Mw-Plb"/>
                 <constraint firstItem="Y8e-4g-QLM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="bst-1a-dvJ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Y8e-4g-QLM" secondAttribute="trailing" constant="10" id="ceT-p4-gE5"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jUL-hi-uI0" secondAttribute="trailing" constant="20" id="eEm-DV-4yt"/>
+                <constraint firstItem="z6h-j0-deU" firstAttribute="leading" secondItem="i6D-Zh-Rkn" secondAttribute="leading" constant="8" id="eMW-tf-gyP"/>
                 <constraint firstItem="LAw-lX-LMx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jUL-hi-uI0" secondAttribute="bottom" constant="10" id="eaO-ij-UGO"/>
                 <constraint firstItem="Y8e-4g-QLM" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="fHq-5i-Me7"/>
                 <constraint firstAttribute="bottom" secondItem="DqT-Yb-MGR" secondAttribute="bottom" constant="10" id="hRH-Ba-mnG"/>
+                <constraint firstItem="z6h-j0-deU" firstAttribute="bottom" secondItem="i6D-Zh-Rkn" secondAttribute="bottom" id="kdt-pu-yus"/>
                 <constraint firstItem="jUL-hi-uI0" firstAttribute="top" secondItem="tMl-ed-nbL" secondAttribute="bottom" constant="10" id="uUI-xW-iFB"/>
                 <constraint firstItem="tMl-ed-nbL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="xvq-jC-Oef"/>
             </constraints>

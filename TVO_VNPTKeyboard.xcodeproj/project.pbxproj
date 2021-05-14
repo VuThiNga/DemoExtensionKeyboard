@@ -11,6 +11,8 @@
 		8403B8202637F0ED00CBC738 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C368042637BE9D00E81090 /* Assets.xcassets */; };
 		842D53CB26478065002CC9B8 /* BasicPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D53C926478065002CC9B8 /* BasicPopup.swift */; };
 		842D53CC26478065002CC9B8 /* BasicPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842D53CA26478065002CC9B8 /* BasicPopup.xib */; };
+		843CF571264E35F20023FCD9 /* EnterPhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843CF570264E35F20023FCD9 /* EnterPhoneView.xib */; };
+		843CF576264E36150023FCD9 /* EnterPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CF575264E36150023FCD9 /* EnterPhoneView.swift */; };
 		844036E72645223700996DDB /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844036E62645223700996DDB /* ExternalAccessory.framework */; };
 		84A480142644F70A00CB23FA /* VNPTEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A480132644F70A00CB23FA /* VNPTEndpoints.swift */; };
 		84A480182644F7AF00CB23FA /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A480172644F7AF00CB23FA /* Network.swift */; };
@@ -71,6 +73,8 @@
 		76A7F95161839CC094279CDA /* Pods_TVO_VNPTKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVO_VNPTKeyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		842D53C926478065002CC9B8 /* BasicPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicPopup.swift; sourceTree = "<group>"; };
 		842D53CA26478065002CC9B8 /* BasicPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicPopup.xib; sourceTree = "<group>"; };
+		843CF570264E35F20023FCD9 /* EnterPhoneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnterPhoneView.xib; sourceTree = "<group>"; };
+		843CF575264E36150023FCD9 /* EnterPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPhoneView.swift; sourceTree = "<group>"; };
 		844036E52645223700996DDB /* TVO_VNPTKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TVO_VNPTKeyboard.entitlements; sourceTree = "<group>"; };
 		844036E62645223700996DDB /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		84A480132644F70A00CB23FA /* VNPTEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNPTEndpoints.swift; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 				84A8617A264792A6007180BC /* BasicPopupView.swift */,
 				84D82022264D105100D189CB /* UntilityKeyboardCell.swift */,
 				84D82026264E19B000D189CB /* UIViewController-ex.swift */,
+				843CF570264E35F20023FCD9 /* EnterPhoneView.xib */,
+				843CF575264E36150023FCD9 /* EnterPhoneView.swift */,
 			);
 			path = TVO_VNPTCustomKB;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 			files = (
 				84C95171263912DF00CD5BAD /* contacts.json in Resources */,
 				84C95143263810BF00CD5BAD /* Keyboard.xib in Resources */,
+				843CF571264E35F20023FCD9 /* EnterPhoneView.xib in Resources */,
 				84C951492638122100CD5BAD /* ItemKeyboardCell.xib in Resources */,
 				842D53CC26478065002CC9B8 /* BasicPopup.xib in Resources */,
 				84A8617726479224007180BC /* BasicPopupView.xib in Resources */,
@@ -414,6 +421,7 @@
 				84C9516326390CE200CD5BAD /* KeyboardVM.swift in Sources */,
 				84A480142644F70A00CB23FA /* VNPTEndpoints.swift in Sources */,
 				84A480182644F7AF00CB23FA /* Network.swift in Sources */,
+				843CF576264E36150023FCD9 /* EnterPhoneView.swift in Sources */,
 				84D82023264D105100D189CB /* UntilityKeyboardCell.swift in Sources */,
 				84C951482638122100CD5BAD /* ItemKeyboardCell.swift in Sources */,
 				84A480532644FA8900CB23FA /* VNPTModels.swift in Sources */,
