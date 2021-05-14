@@ -354,6 +354,21 @@ extension KeyboardViewController {
     }
     
     func showPopupEnterNumber(){
+        let viewAn = UIView()
+        viewAn.backgroundColor = .blue
+        viewAn.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(viewAn)
+        NSLayoutConstraint.activate([
+            viewAn.leftAnchor.constraint(equalTo: self.displayNumberLb.leftAnchor, constant: self.displayNumberLb.text?.width(withConstrainedHeight: 32, font: UIFont.systemFont(ofSize: 17)) ?? 0),
+            viewAn.topAnchor.constraint(equalTo: self.displayNumberLb.topAnchor, constant: 6),
+            viewAn.bottomAnchor.constraint(equalTo: self.displayNumberLb.bottomAnchor, constant: -6),
+            viewAn.widthAnchor.constraint(equalToConstant: 1.5)
+        ])
+        UIView.animate(withDuration: 1, delay: 0.2, options: .repeat, animations: {
+            viewAn.alpha = 0
+        }, completion: { _ in
+            viewAn.alpha = 1
+        })
         let popup = Bundle.main.loadNibNamed("EnterPhoneView", owner: self, options: nil)?.first as! EnterPhoneView
         popup.frame = CGRect(x:0, y: self.view.frame.height + 10, width: self.view.frame.width, height: self.view.frame.height)
         UIView.transition(with: self.view, duration: 0.25, options: [.curveEaseIn], animations: {
@@ -372,6 +387,7 @@ extension KeyboardViewController {
                     self?.tfPhone.placeholder  = "Enter number"
                 }
                 self?.displayNumberLb.text = numberStr
+                viewAn.removeFromSuperview()
             })
         }
     }
