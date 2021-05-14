@@ -9,6 +9,7 @@ import UIKit
 import Foundation
 import MBProgressHUD
 import SwiftyGif
+import MobileCoreServices
 
 class KeyboardViewController: UIInputViewController {
 
@@ -238,6 +239,15 @@ extension KeyboardViewController: UICollectionViewDataSource, UICollectionViewDe
             }else {
                 //do something
                 self.descriptionLB.text = "Chọn Hạn mức để xem thông tin API VNPT"
+                
+                let pb = UIPasteboard.general
+                
+                let image: UIImage = untilityList[indexPath.row].imageUntility ?? UIImage()
+                if let data = image.pngData() {
+                    pb.setData(data,forPasteboardType: kUTTypePNG as String)
+                    self.showToast(message: "Copy image successful", font: UIFont.systemFont(ofSize: 12))
+                }
+                
             }
             
         } else {
@@ -316,6 +326,10 @@ extension KeyboardViewController {
                 popup.frame = CGRect(x:0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
             }, completion: nil)
             self.view.addSubview(popup)
+            popup.copyInfomation = { [weak self] info in
+                UIPasteboard.general.string = info
+                self?.showToast(message: "Copy info successful", font: UIFont.systemFont(ofSize: 12))
+            }
             popup.closePopup = {
                 UIView.transition(with: self.view, duration: 0.5, options: [.curveEaseIn], animations: {
                     popup.frame = CGRect(x:0, y: self.view.frame.height + 10, width: self.view.frame.width, height: self.view.frame.height)
