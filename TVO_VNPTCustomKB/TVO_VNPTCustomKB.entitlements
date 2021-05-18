@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.ngavt.tvo.KeyboardCustomTVO</string>
+		<string>group.com.tvo.vnpt.demo</string>
 	</array>
 </dict>
 </plist>

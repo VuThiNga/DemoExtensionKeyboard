@@ -21,11 +21,11 @@ class ViewController: BaseVC, NSFilePresenter, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         
         let file = "keyboard.txt"
-        let dir = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.ngavt.tvo.KeyboardCustomTVO")!
-        presentedItemURL = dir.appendingPathComponent(file)
-        
-        // register for presentedItemDidChange work
-        NSFileCoordinator.addFilePresenter(self)
+        if let dir = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.tvo.vnpt.demo") {
+            presentedItemURL = dir.appendingPathComponent(file)
+            // register for presentedItemDidChange work
+            NSFileCoordinator.addFilePresenter(self)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,8 +44,11 @@ class ViewController: BaseVC, NSFilePresenter, UITextFieldDelegate {
     }
 
     private func readFromFile() {
+        guard let presentedItemURL = presentedItemURL else {
+            return
+        }
         let coordinator = NSFileCoordinator(filePresenter: self)
-        coordinator.coordinate(readingItemAt: presentedItemURL!, options: [], error: nil) { url in
+        coordinator.coordinate(readingItemAt: presentedItemURL, options: [], error: nil) { url in
             if let url = try? String(contentsOf: url, encoding: .utf8) {
                 let urlLink = URL(string: url)
                 if let urlLink = urlLink {
@@ -63,7 +66,7 @@ class ViewController: BaseVC, NSFilePresenter, UITextFieldDelegate {
 
 //                }
             }
-            coordinator.coordinate(writingItemAt: presentedItemURL!, options: .forReplacing, error: nil) { url in
+            coordinator.coordinate(writingItemAt: presentedItemURL, options: .forReplacing, error: nil) { url in
                 do {
                     try "".write(to: url, atomically: false, encoding: .utf8)
                 }

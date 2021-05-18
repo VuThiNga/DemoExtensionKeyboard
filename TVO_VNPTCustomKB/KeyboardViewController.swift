@@ -47,9 +47,10 @@ class KeyboardViewController: UIInputViewController {
         loadInterface()
         
         let file = "keyboard.txt"
-        let dir = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.ngavt.tvo.KeyboardCustomTVO")!
-        presentedItemURL = dir.appendingPathComponent(file)
-        untilityList = vm.initUntilityList()
+        if let dir = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.tvo.vnpt.demo") {
+            presentedItemURL = dir.appendingPathComponent(file)
+            untilityList = vm.initUntilityList()
+        }
         self.tfPhone.isUserInteractionEnabled = false
     }
     
@@ -395,8 +396,11 @@ extension KeyboardViewController {
 
 extension KeyboardViewController: NSFilePresenter {
     func writeToFile(urlStr: String){
+        guard let presentedItemURL = presentedItemURL else {
+            return
+        }
         let coordinator = NSFileCoordinator(filePresenter: self)
-        coordinator.coordinate(writingItemAt: presentedItemURL!, options: .forReplacing, error: nil) { url in
+        coordinator.coordinate(writingItemAt: presentedItemURL, options: .forReplacing, error: nil) { url in
             do {
                 try urlStr.write(to: url, atomically: false, encoding: .utf8)
             }

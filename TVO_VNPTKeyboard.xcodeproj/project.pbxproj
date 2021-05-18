@@ -584,13 +584,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TVO_VNPTKeyboard/TVO_VNPTKeyboard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YB6AYSJ265;
+				DEVELOPMENT_TEAM = 2KP362L72H;
 				INFOPLIST_FILE = TVO_VNPTKeyboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ngavt.tvo.TVO-VNPTKeyboard";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tvo.vnpt.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -606,13 +606,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TVO_VNPTKeyboard/TVO_VNPTKeyboard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YB6AYSJ265;
+				DEVELOPMENT_TEAM = 2KP362L72H;
 				INFOPLIST_FILE = TVO_VNPTKeyboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ngavt.tvo.TVO-VNPTKeyboard";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tvo.vnpt.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -625,7 +625,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TVO_VNPTCustomKB/TVO_VNPTCustomKB.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YB6AYSJ265;
+				DEVELOPMENT_TEAM = 2KP362L72H;
 				INFOPLIST_FILE = TVO_VNPTCustomKB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -633,7 +633,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ngavt.tvo.TVO-VNPTKeyboard.TVO-VNPTCustomKB";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tvo.vnpt.demo.TVO-VNPTCustomKB";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -647,7 +647,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TVO_VNPTCustomKB/TVO_VNPTCustomKB.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YB6AYSJ265;
+				DEVELOPMENT_TEAM = 2KP362L72H;
 				INFOPLIST_FILE = TVO_VNPTCustomKB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -655,7 +655,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ngavt.tvo.TVO-VNPTKeyboard.TVO-VNPTCustomKB";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tvo.vnpt.demo.TVO-VNPTCustomKB";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
